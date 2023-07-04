@@ -4,7 +4,6 @@ import { TodoItem } from '../models/TodoItem'
 import { CreateTodoRequest } from '../requests/CreateTodoRequest'
 import { UpdateTodoRequest } from '../requests/UpdateTodoRequest'
 import * as uuid from 'uuid'
-import { TodoUpdate } from '../models/TodoUpdate';
 
 // TODO: Implement businessLogic
 const todosAccess = new TodosAccess()
@@ -28,15 +27,15 @@ export async function createTodo(createTodoRequest: CreateTodoRequest, userId: s
     });
 }
 
-export async function updateTodo(todoId: string, updateTodoRequest: UpdateTodoRequest, userId: string): Promise<TodoUpdate> {
+export async function updateTodo(todoId: string, updateTodoRequest: UpdateTodoRequest, userId: string) {
 
-    return await todosAccess.updateTodo({
-        name: updateTodoRequest.name,
-        dueDate: updateTodoRequest.dueDate,
-        done: updateTodoRequest.done
-    },
-        todoId,
-        userId);
+    await todosAccess.updateTodo(todoId,
+        {
+            name: updateTodoRequest.name,
+            dueDate: updateTodoRequest.dueDate,
+            done: updateTodoRequest.done
+        },
+        userId)
 }
 
 export async function deleteTodo(todoId: string, userId: string) {
