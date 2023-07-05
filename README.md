@@ -1,3 +1,11 @@
+[![Build Status](https://app.travis-ci.com/ryan-nhn/c4-final-project-starter-code.svg?branch=main)](https://app.travis-ci.com/ryan-nhn/c4-final-project-starter-code)
+# Site
+http://serverless-c4-todo-images-hungnn-frontend-dev.s3-website-us-east-1.amazonaws.com/
+
+# Improvements from C4
+* serverless deploy for both frontend and backend
+* add Travis CI/CD
+
 # Serverless TODO
 
 To implement this project, you need to implement a simple TODO application using AWS Lambda and Serverless framework. Search for all comments starting with the `TODO:` in the code to find the placeholders that you need to implement.
