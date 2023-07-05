@@ -1,14 +1,19 @@
 language: node_js
 node_js:
   - 14
-script:
+install:
+  - echo "build FrontEnd"
   - cd client 
   - npm install
   - travis_retry npm install
   - npm run build
+  - echo "build BackEnd"
   - cd ../backend
+  - npm install
   - travis_retry npm install
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: sls deploy -v && sls client deploy --no-confirm # Deploy using the Serverless Framework
+script:
+  - echo "deploy BackEnd"
+  - npm install -g serverless
+  - sls deploy -v
+  - echo "deploy FrontEnd"
+  - sls client deploy --no-confirm
