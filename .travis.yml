@@ -14,6 +14,7 @@ install:
 script:
   - echo "deploy BackEnd"
   - npm install -g serverless
-  - sls deploy -v
+  - export NODE_OPTIONS="--max-old-space-size=4096"
+  - sls deploy --verbose
   - echo "deploy FrontEnd"
   - sls client deploy --no-confirm
